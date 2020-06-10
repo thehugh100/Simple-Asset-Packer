@@ -13,7 +13,7 @@ assetpacker.exe image_name.bin
 # C++ Usage
 Loading an asset image from a file:
 
-```
+```C++
 #include "AssetPacker.h"
 ...
 AssetPacker::fileImageMap_t files;
@@ -26,7 +26,7 @@ for (auto& i : files)
 
 Create an asset image:
 
-```
+```C++
 #include "AssetPacker.h"
 ...
 pathList_t files; // an std::vector of file and directory paths
