@@ -1,7 +1,7 @@
 # Simple-Asset-Packer
 Simple asset packer for use with games &amp; standalone applications
 
-#CLI Usage
+# CLI Usage
 Create a packed imagine containing a list of files and directories:
 assetpacker.exe <list of input files / directories>
 
