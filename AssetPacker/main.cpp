@@ -33,7 +33,7 @@ void scanDirectory(fs::directory_entry directory, AssetPacker::pathList_t& files
 
 int main(int argc, char **argv)
 {
-	std::vector<std::filesystem::path> files;
+	AssetPacker::pathList_t files;
 	if (argc == 2)
 	{
 		if (fs::exists(argv[1]) && fs::path(argv[1]).extension().compare(".bin") == 0)
