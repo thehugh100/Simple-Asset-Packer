@@ -12,7 +12,7 @@ assetpacker.exe image_name.bin
 ```
 # C++ Usage
 
-``
+```
 #include "AssetPacker.h"
 ...
 AssetPacker::fileImageMap_t files;
