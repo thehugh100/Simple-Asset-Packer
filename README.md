@@ -3,11 +3,11 @@ Simple asset packer for use with games &amp; standalone applications
 
 # CLI Usage
 Create a packed imagine containing a list of files and directories:
-```
+```console
 assetpacker.exe <list of input files / directories>
 ```
 List all the packed files in a bin:
-```
+```console
 assetpacker.exe image_name.bin
 ```
 # C++ Usage
