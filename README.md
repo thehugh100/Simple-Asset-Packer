@@ -4,11 +4,11 @@ Simple cross platform asset packer for use with games &amp; standalone applicati
 # CLI Usage
 Create a packed imagine containing a list of files and directories:
 ```console
-assetpacker.exe <list of input files / directories>
+assetpacker <list of input files / directories>
 ```
 List all the packed files in a bin:
 ```console
-assetpacker.exe image_name.bin
+assetpacker image_name.bin
 ```
 # C++ Usage
 Loading an asset image from a file:
