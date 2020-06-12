@@ -2,7 +2,7 @@
 Simple cross platform asset packer for use with games &amp; standalone applications
 
 # CLI Usage
-Create a packed imagine containing a list of files and directories:
+Create a packed image containing a list of files and directories:
 ```console
 assetpacker <list of input files / directories>
 ```
