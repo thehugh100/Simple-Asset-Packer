@@ -338,3 +338,9 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+AssetPacker/calc.exe
+*.bin
+*.bin
+AssetPacker/image.bin
+*.bin
+AssetPacker/image.bin

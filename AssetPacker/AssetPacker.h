@@ -23,5 +23,8 @@ namespace AssetPacker
 	typedef std::vector<std::filesystem::path> pathList_t;
 
 	extern bool makeImage(fs::path imageName, pathList_t files);
+	extern bool findImageInFile(fs::path filePath, fileImageMap_t& files);
+	extern bool loadImageFromMemory(const char* imageData, uint32_t imageSize, fileImageMap_t& files);
 	extern bool loadImage(fs::path imagePath, fileImageMap_t& files);
+	extern bool appendImageToFile(fs::path imagePath, fs::path filePath);
 }

@@ -33,7 +33,6 @@ void scanDirectory(fs::directory_entry directory, AssetPacker::pathList_t& files
 
 int main(int argc, char **argv)
 {
-	AssetPacker::pathList_t files;
 	if (argc == 2)
 	{
 		if (fs::exists(argv[1]) && fs::path(argv[1]).extension().compare(".bin") == 0)
@@ -48,6 +47,34 @@ int main(int argc, char **argv)
 			exit(0);
 		}
 	}
+	else if (argc == 3)
+	{
+		if (std::string(argv[1]) == "find" && fs::exists(argv[2]))
+		{
+			AssetPacker::fileImageMap_t files;
+			if (AssetPacker::findImageInFile(argv[2], files))
+			{
+				std::cout << "Image Bin Listing: " << argv[2] << std::endl;
+				for (auto& i : files)
+				{
+					std::cout << i.second.path << " (" << i.second.size << " bytes)" << std::endl;
+				}
+				exit(0);
+			}
+			else
+			{
+				std::cout << "Could not find image in file" << std::endl;
+				exit(0);
+			}
+		}
+		if (fs::exists(argv[1]) && fs::path(argv[1]).extension().compare(".bin") == 0 && 
+			fs::exists(argv[2]))
+		{
+			AssetPacker::appendImageToFile(argv[1], argv[2]);
+			exit(0);
+		}
+	}
+	AssetPacker::pathList_t files;
 	if (argc > 1)
 	{
 		for (int i = 1; i < argc; ++i)
@@ -75,5 +102,4 @@ int main(int argc, char **argv)
 	}
 		
 	std::cout << "Done." << std::endl;
-	std::cin.get();
 }
