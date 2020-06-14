@@ -35,7 +35,7 @@ AssetPacker::fileImageMap_t files;
 AssetPacker::loadImage("myImage.bin", files);
 for (auto& i : files)
 {
-  std::cout << i.second.path << " (" << i.second.size << " bytes)" << std::endl;
+	  std::cout << i.second.path << " (" << i.second.size << " bytes)" << std::endl;
 }
 ```
 
