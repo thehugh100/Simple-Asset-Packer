@@ -67,6 +67,50 @@ int main(int argc, char **argv)
 				exit(0);
 			}
 		}
+		if (std::string(argv[1]) == "extract" && fs::exists(argv[2]))
+		{
+			AssetPacker::fileImageMap_t files;
+			if (AssetPacker::findImageInFile(argv[2], files))
+			{
+				std::cout << "Image Bin Listing: " << argv[2] << std::endl;
+				for (auto& i : files)
+				{
+					std::cout << i.second.path << " (" << i.second.size << " bytes)" << std::endl;
+				}
+
+				if (files.size())
+				{
+					std::string path = "";
+					std::cout << "Enter extraction path (blank for current folder): ";
+					std::cin >> path;
+					
+					if (fs::create_directory(path))
+					{
+						for (auto& i : files)
+						{
+							//std::cout << i.second.path << " (" << i.second.size << " bytes)" << std::endl;
+
+							std::ofstream fileW(path + "/" + i.second.path, std::ios::binary);
+
+							fileW.write(i.second.data, i.second.size);
+
+							fileW.close();
+						}
+						std::cout << "Done." << std::endl;
+					}
+					else
+					{
+						std::cout << "Failed to create directory: " << path << ", extraction failed." << std::endl;
+					}
+				}
+				exit(0);
+			}
+			else
+			{
+				std::cout << "Could not find image in file" << std::endl;
+				exit(0);
+			}
+		}
 		if (fs::exists(argv[1]) && fs::path(argv[1]).extension().compare(".bin") == 0 && 
 			fs::exists(argv[2]))
 		{
