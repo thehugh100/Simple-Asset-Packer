@@ -44,7 +44,7 @@ Create an asset image:
 ```C++
 #include "AssetPacker.h"
 ...
-pathList_t files; // an std::vector of file paths
+AssetPacker::pathList_t files; // an std::vector of file paths
 AssetPacker::makeImage("image.bin", files);
 ```
 Find an image embedded in a file:
