@@ -99,7 +99,7 @@ namespace AssetPacker
 		return true;
 	}
 
-	bool findImageInFile(fs::path filePath, fileImageMap_t& files)
+	bool findImageInFile(fs::path filePath, fileImageMap_t& files, bool findLastImageInFile)
 	{
 		std::ifstream file(filePath, std::ios::binary);
 		if (file)
@@ -108,7 +108,17 @@ namespace AssetPacker
 			char* fileData = new char[fileSize];
 			file.read(fileData, fileSize);
 			file.close();
-
+			if (findLastImageInFile)
+			{
+				for (int i = fileSize - 16; i > 0; --i)
+				{
+					if (memcmp(fileData + i, "ASSET", 5) == 0)
+					{
+						if (loadImageFromMemory(fileData + i, 0, files))
+							return true;
+					}
+				}
+			}
 			for (int i = 0; i < fileSize - 16; ++i)
 			{
 				if (memcmp(fileData + i, "ASSET", 5) == 0)
