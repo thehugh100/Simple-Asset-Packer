@@ -2,6 +2,11 @@
 
 namespace AssetPacker
 {
+	void deleteFileImageMap(fileImageMap_t* fileImageMap)
+	{
+		for (auto& i : *fileImageMap)
+			i.second.free();
+	}
 	bool makeImage(fs::path imageName, pathList_t files)
 	{
 		if (files.size() == 0)
@@ -202,5 +207,9 @@ namespace AssetPacker
 	FileImage::FileImage(std::string path, uint32_t size, const char* data)
 		:path(path), size(size), data(data)
 	{
+	}
+	void FileImage::free()
+	{
+		delete[] data;
 	}
 }
