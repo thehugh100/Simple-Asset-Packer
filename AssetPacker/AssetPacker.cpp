@@ -24,7 +24,7 @@ namespace AssetPacker
 		image.write("\x00\x00\x00\x00", 4);
 		for (auto& i : files)
 		{
-			std::ifstream file(i, std::ios::binary, std::ios::binary);
+			std::ifstream file(i, std::ios::binary);
 
 			uint32_t size = fs::file_size(i);
 
