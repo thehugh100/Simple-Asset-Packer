@@ -5,26 +5,21 @@ Simple cross platform asset packer for use with games &amp; standalone applicati
 The benefit of packing assets with this library vs resource files or binary blobs is still maintaining a virtual filesystem and cross platform compatibility.
 
 # CLI Usage
-Create a packed image containing a list of files and directories:
 ```console
-assetpacker <list of input files / directories>
+-append : appends an image file to another file
+        Usage: assetpacker -append image.bin test.exe
+-compile : Compiles a directory into an image.bin
+        Usage: assetpacker -compile ./directory <multiple files/directories>
+-extract : extracts an image file into a directory (prompts for directory)
+        Usage: assetpacker -extract image.bin
+-find : finds and lists an image embedded within another file
+        Usage: assetpacker -find test.exe
+-help : Displays this help text
+-list : lists files inside an image
+        Usage: assetpacker -list image.bin
 ```
-List all the packed files in a bin:
-```console
-assetpacker image_name.bin
-```
-List the contents of an embedded image:
-```console
-assetpacker find <filepath to embedded image>
-```
-extract the contents of an embedded/standalone image:
-```console
-assetpacker extract <filepath to embedded image>
-```
-Embed an image bin into an executable:
-```console
-assetpacker <standalone image bin> <target file>
-```
+
+
 # C++ Usage
 Loading an asset image from a file:
 
